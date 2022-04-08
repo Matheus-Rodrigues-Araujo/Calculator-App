@@ -3,18 +3,12 @@ const inputEl = document.getElementById("input-el")
 inputEl.value = ''
 // Function to verify the expression inside the input
 function verifyingExpression(input){
-    const regex =  /^\s*([-+]?)(\d+)(?:\s*([-+*\/])\s*((?:\s[-+])?\d+)\s*)+$/g
+    const regex =  /^\s*([-+]?)(\d+)(?:\s*([-+*%\/])\s*((?:\s[-+])?\d+)\s*)+$/g
     if(regex.test(input)){
-        console.log(true)
+        return true
     }
+    return false
 }
-
-// function deleteLastDigit(string){
-//     let myArray = string.split('')
-//     myArray.pop()
-//     string = myArray.join('')
-//     return string
-// }
 
 // Numbers, operators, etc
 const rest = document.getElementById("rest")
@@ -53,6 +47,9 @@ const equal = document.getElementById("equal")
 // Adding Event Listeners to buttons
 // ---------------------------------------
 // Numbers
+zero.addEventListener('click', function(){
+    inputEl.value += 0
+})
 one.addEventListener('click', function(){
     inputEl.value += 1
 })
@@ -102,9 +99,14 @@ comma.addEventListener('click', function(){
 rest.addEventListener('click', function(){
     inputEl.value += "%"
 })
-
+// When the "equals button" is pressed, the expression inside the input field will be calculated.
+// Just pass the value of the "inputEl" variable as an argument inside the "eval()" method. 
+// As "inputEl.value" is a string, after it is passed as an argument in the quoted method,
+// the result of the math expression will be shown in that same input field.
 equal.addEventListener('click', function(){
-    verifyingExpression(inputEl.value)
+    if(verifyingExpression(inputEl.value)){
+        inputEl.value = eval(inputEl.value)
+    }
 })
 
 c.addEventListener('click', function(){
