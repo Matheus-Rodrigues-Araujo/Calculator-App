@@ -15,3 +15,8 @@ This is a calculator app that I started. The application is almost complete, it 
 ![calculator_expression_result](https://user-images.githubusercontent.com/68081476/162514095-037da29c-0bfe-4310-98b3-008c171630c2.png)
 ![division](https://user-images.githubusercontent.com/68081476/162514171-3d6e8e83-d55f-4ccc-b84f-e94daf83106e.png)
 ![division_result](https://user-images.githubusercontent.com/68081476/162514237-78dd324f-df5f-4d6e-adaa-26554ddc30ae.png)
+
+------------ What's changed -----------
+
+* The function inside the addEvent of the 'equals' button has been reduced, bringing better processing to calculate the math expressions
+* The appearance of buttons and their arrangement in the calculator has been improved
