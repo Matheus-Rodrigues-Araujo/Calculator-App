@@ -73,3 +73,15 @@ button:hover{
     background-color: rgb(8, 181, 181);
     color: white;
 }
+
+#equal{
+    font-size: 30px;
+    color: white;
+    background-color: rgb(10, 171, 158);
+    padding-top: 15%;
+}
+
+#equal:hover{
+    background-color: rgb(12, 221, 221);
+}
+
