@@ -98,7 +98,7 @@ comma.addEventListener('click', function(){
 
 // function should be improved, doesn't work in all cases
 exponent.addEventListener('click', function(){
-    // inputEl.value = Math.pow(inputEl.value,2)
+    inputEl.value += '**2'
 })
 
 squareRoot.addEventListener('click', function(){
