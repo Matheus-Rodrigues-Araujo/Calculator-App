@@ -17,7 +17,7 @@ const c = document.getElementById("c")
 const del = document.getElementById("delete")
 
 const onedivx = document.getElementById("onedivx")
-const quadrado = document.getElementById("quadrado")
+const exponent = document.getElementById("exponent")
 const squareRoot = document.getElementById("squareRoot")
 const div = document.getElementById("division")
 
@@ -86,7 +86,7 @@ subtract.addEventListener('click', function(){
     inputEl.value += "-"
 })
 multiply.addEventListener('click', function(){
-    inputEl.value += "x"
+    inputEl.value += "*"
 })
 div.addEventListener('click', function(){
     inputEl.value += "/"
@@ -96,21 +96,38 @@ comma.addEventListener('click', function(){
     inputEl.value += "."
 })
 
+// function should be improved, doesn't work in all cases
+exponent.addEventListener('click', function(){
+    // inputEl.value = Math.pow(inputEl.value,2)
+})
+
+squareRoot.addEventListener('click', function(){
+    inputEl.value = Math.sqrt(inputEl.value)
+})
+
+onedivx.addEventListener('click', function(){
+    inputEl.value = 1/inputEl.value
+})
+
 rest.addEventListener('click', function(){
     inputEl.value += "%"
 })
+
 // When the "equals button" is pressed, the expression inside the input field will be calculated.
 // Just pass the value of the "inputEl" variable as an argument inside the "eval()" method. 
 // As "inputEl.value" is a string, after it is passed as an argument in the quoted method,
 // the result of the math expression will be shown in that same input field.
 equal.addEventListener('click', function(){
-    if(verifyingExpression(inputEl.value)){
-        inputEl.value = eval(inputEl.value)
-    }
+    inputEl.value = eval(inputEl.value)
 })
 
 c.addEventListener('click', function(){
     inputEl.value = ''
+})
+
+// This button, after being clicked, turns the number into positive or negative, depending on how your current sign is.
+moreOrLes.addEventListener('click', function(){
+    inputEl.value = inputEl.value * (-1)
 })
 
 del.addEventListener('click', function(){
