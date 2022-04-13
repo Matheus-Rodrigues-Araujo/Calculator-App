@@ -1,17 +1,32 @@
+// import * as squareRoot from /mySquareRoot.js/
 // Display values
 const inputEl = document.getElementById("input-el")
 inputEl.value = ''
-// Function to verify the expression inside the input
-function verifyingExpression(input){
-    const regex =  /^\s*([-+]?)(\d+)(?:\s*([-+*%\/])\s*((?:\s[-+])?\d+)\s*)+$/g
-    if(regex.test(input)){
-        return true
+
+// Function to identify if there are square roots in the mathematical expression.
+// This feature still needs improvement
+function findSquareRoot(exp){
+    // For now it is working with only one Square Root in the expression
+    let regex = /√\d+/g
+    if(regex.test(exp)){
+        let sqrRoot = exp.match(regex)
+        let pos;
+        // let theValue;
+        let value;
+        for(let i in sqrRoot){
+            pos = sqrRoot[i]
+            theNumberInside = sqrRoot[i].slice(1,)
+            value = Math.sqrt(Number(theNumberInside))
+        }
+        value = String(value)
+        return exp.replace(pos, value)
     }
     return false
 }
 
 // Numbers, operators, etc
 const rest = document.getElementById("rest")
+// The "CE" button doesn't work yet'
 const ce = document.getElementById("ce")
 const c = document.getElementById("c")
 const del = document.getElementById("delete")
@@ -41,8 +56,6 @@ const moreOrLes = document.getElementById("moreOrLess")
 const zero = document.getElementById("zero")
 const comma = document.getElementById("comma")
 const equal = document.getElementById("equal")
-// Verifying the input
-
 
 // Adding Event Listeners to buttons
 // ---------------------------------------
@@ -84,6 +97,7 @@ sum.addEventListener('click', function(){
 })
 subtract.addEventListener('click', function(){
     inputEl.value += "-"
+
 })
 multiply.addEventListener('click', function(){
     inputEl.value += "*"
@@ -102,7 +116,7 @@ exponent.addEventListener('click', function(){
 })
 
 squareRoot.addEventListener('click', function(){
-    inputEl.value = Math.sqrt(inputEl.value)
+    inputEl.value += '√'
 })
 
 onedivx.addEventListener('click', function(){
@@ -117,10 +131,14 @@ rest.addEventListener('click', function(){
 // Just pass the value of the "inputEl" variable as an argument inside the "eval()" method. 
 // As "inputEl.value" is a string, after it is passed as an argument in the quoted method,
 // the result of the math expression will be shown in that same input field.
+
 equal.addEventListener('click', function(){
+    if(findSquareRoot(inputEl.value)){
+        inputEl.value = eval(findSquareRoot(inputEl.value))
+    }
     inputEl.value = eval(inputEl.value)
 })
-
+//-------------------------------------------------------
 c.addEventListener('click', function(){
     inputEl.value = ''
 })
