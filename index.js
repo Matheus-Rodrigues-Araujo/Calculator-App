@@ -1,27 +1,25 @@
-// import * as squareRoot from /mySquareRoot.js/
-// Display values
+// Variable responsible for the input element, through the 'getElementById()' method
 const inputEl = document.getElementById("input-el")
 inputEl.value = ''
 
-// Function to identify if there are square roots in the mathematical expression.
-// This feature still needs improvement
 function findSquareRoot(exp){
-    // For now it is working with only one Square Root in the expression
     let regex = /√\d+/g
     if(regex.test(exp)){
+        // Store the square roots of the string in the 'sqrRoot' array
         let sqrRoot = exp.match(regex)
-        let pos;
-        // let theValue;
-        let value;
-        for(let i in sqrRoot){
-            pos = sqrRoot[i]
-            theNumberInside = sqrRoot[i].slice(1,)
-            value = Math.sqrt(Number(theNumberInside))
+        // At each loop, this variable will receive the values of the 'sqrRoot' array and will
+        // replace the original value with a new one, which is precisely the value of the square
+        // root of the number.
+        let getCurrentSqrt;
+        for (let i in sqrRoot){
+            getCurrentSqrt = sqrRoot[i]
+            // Replacing the original value(s) with a new one
+            exp = exp.replace(getCurrentSqrt, Math.sqrt(Number(getCurrentSqrt.slice(1,))))
         }
-        value = String(value)
-        return exp.replace(pos, value)
+        // And finally, the string passed as an argument returns as a value to be passed to the
+        // 'eval()' method, and thus generate the result of the mathematical expression.
+        return exp
     }
-    return false
 }
 
 // Numbers, operators, etc
