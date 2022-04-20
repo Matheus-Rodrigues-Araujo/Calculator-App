@@ -65,7 +65,8 @@ const factorial = document.getElementById("factorial")
 const c = document.getElementById("c")
 const del = document.getElementById("delete")
 
-const onedivx = document.getElementById("onedivx")
+const parenthesis1 = document.getElementById("parenthesis1")
+const parenthesis2 = document.getElementById("parenthesis2")
 const exponent = document.getElementById("exponent")
 const squareRoot = document.getElementById("squareRoot")
 const div = document.getElementById("division")
@@ -86,7 +87,6 @@ const two = document.getElementById("two")
 const three = document.getElementById("three")
 const sum = document.getElementById("sum")
 
-const moreOrLes = document.getElementById("moreOrLess")
 const zero = document.getElementById("zero")
 const comma = document.getElementById("comma")
 const equal = document.getElementById("equal")
@@ -144,6 +144,12 @@ comma.addEventListener('click', function(){
     inputEl.value += ","
 })
 
+parenthesis1.addEventListener('click', function(){
+    inputEl.value +='('}
+)
+parenthesis2.addEventListener('click', function(){
+    inputEl.value +=')'}
+)
 // function should be improved, doesn't work in all cases
 exponent.addEventListener('click', function(){
     inputEl.value += '²'
@@ -151,10 +157,6 @@ exponent.addEventListener('click', function(){
 
 squareRoot.addEventListener('click', function(){
     inputEl.value += '√'
-})
-
-onedivx.addEventListener('click', function(){
-    inputEl.value +='1/'
 })
 
 rest.addEventListener('click', function(){
@@ -180,12 +182,6 @@ c.addEventListener('click', function(){
 
 factorial.addEventListener('click', function(){
     inputEl.value+= "!"
-})
-
-// This button, after being clicked, turns the number into positive or negative, depending on how your current sign is.
-moreOrLes.addEventListener('click', function(){
-    inputEl.value = inputEl.value.replace(',','.') * -1
-    inputEl.value = inputEl.value.replace('.',',')
 })
 
 del.addEventListener('click', function(){
