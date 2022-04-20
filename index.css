@@ -78,10 +78,24 @@ button:hover{
     font-size: 30px;
     color: white;
     background-color: rgb(10, 171, 158);
-    padding-top: 15%;
+    padding-top: 18%;
 }
 
 #equal:hover{
     background-color: rgb(12, 221, 221);
 }
 
+#delete{
+    font-size: 35px;
+    padding-top: 15%;
+}
+
+#squareRoot{
+    font-size: 30px;
+    padding-top: 20%;
+}
+
+#parenthesis1, #parenthesis2{
+    font-size: 22px;
+    padding-top: 20%;
+}
