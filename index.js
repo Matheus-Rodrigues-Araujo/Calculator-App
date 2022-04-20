@@ -2,8 +2,9 @@
 const inputEl = document.getElementById("input-el")
 inputEl.value = ''
 
+// Function that will look for square roots in the input field and replace them for their value
 function findSquareRoot(exp){
-    let regex = /√\d+/g
+    const regex = /√\d+/g
     if(regex.test(exp)){
         // Store the square roots of the string in the 'sqrRoot' array
         let sqrRoot = exp.match(regex)
@@ -20,12 +21,47 @@ function findSquareRoot(exp){
         // 'eval()' method, and thus generate the result of the mathematical expression.
         return exp
     }
+    return exp
+}
+// Function 'calculateFactorial' will calculate the factorial of a value.
+// The "find factorial" function will call the "calculateFactorial" function
+// to return the result of the factorial. Therefore, the function 'calculateFactorial'
+// acts as an helper function
+function calculateFactorial(value){
+    let cont = value -1
+    for(let i = cont; i>=1; i-=1){value*=i}
+    return String(value)
+}
+
+// Function 'findFactorial' will find all factorials of the input field,
+// and that will pass each value to the 'calculate Factorial' function,
+// which will return the value of the factorial.
+function findFactorial(inputEl){
+    const regex = /\d+!/g
+    let facArray;
+    if(regex.test(inputEl)){
+        facArray = inputEl.match(regex)
+        for(let i in facArray){
+            let originalStringValue = facArray[i]
+            let numberValue = Number(facArray[i].slice(0,facArray[i].length-1))
+            inputEl = inputEl.replace(originalStringValue, calculateFactorial(numberValue))
+        }
+        return inputEl
+    }
+    return inputEl
+}
+// This function replaces the letter 'x', the special character "²" and the comma(s)
+function replaceSymbols(string){
+    string = string.replace(/,/g,".")
+    string = string.replace(/x/g, "*")
+    string = string.replace(/²/g, "**2")
+    return string
 }
 
 // Numbers, operators, etc
 const rest = document.getElementById("rest")
 // The "CE" button doesn't work yet'
-const ce = document.getElementById("ce")
+const factorial = document.getElementById("factorial")
 const c = document.getElementById("c")
 const del = document.getElementById("delete")
 
@@ -98,19 +134,19 @@ subtract.addEventListener('click', function(){
 
 })
 multiply.addEventListener('click', function(){
-    inputEl.value += "*"
+    inputEl.value += "x"
 })
 div.addEventListener('click', function(){
     inputEl.value += "/"
 })
 
 comma.addEventListener('click', function(){
-    inputEl.value += "."
+    inputEl.value += ","
 })
 
 // function should be improved, doesn't work in all cases
 exponent.addEventListener('click', function(){
-    inputEl.value += '**2'
+    inputEl.value += '²'
 })
 
 squareRoot.addEventListener('click', function(){
@@ -118,7 +154,7 @@ squareRoot.addEventListener('click', function(){
 })
 
 onedivx.addEventListener('click', function(){
-    inputEl.value = 1/inputEl.value
+    inputEl.value +='1/'
 })
 
 rest.addEventListener('click', function(){
@@ -131,19 +167,25 @@ rest.addEventListener('click', function(){
 // the result of the math expression will be shown in that same input field.
 
 equal.addEventListener('click', function(){
-    if(findSquareRoot(inputEl.value)){
-        inputEl.value = eval(findSquareRoot(inputEl.value))
-    }
+    inputEl.value = findSquareRoot(inputEl.value)
+    inputEl.value = findFactorial(inputEl.value)
+    inputEl.value = replaceSymbols(inputEl.value)
     inputEl.value = eval(inputEl.value)
+    inputEl.value = inputEl.value.replace(".",",")
 })
 //-------------------------------------------------------
 c.addEventListener('click', function(){
     inputEl.value = ''
 })
 
+factorial.addEventListener('click', function(){
+    inputEl.value+= "!"
+})
+
 // This button, after being clicked, turns the number into positive or negative, depending on how your current sign is.
 moreOrLes.addEventListener('click', function(){
-    inputEl.value = inputEl.value * (-1)
+    inputEl.value = inputEl.value.replace(',','.') * -1
+    inputEl.value = inputEl.value.replace('.',',')
 })
 
 del.addEventListener('click', function(){
