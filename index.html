@@ -4,56 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Calculator App</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator App Version 3.0</title>
 </head>
 <body>
     <header>My Calculator</header>
     <div id="main-div">
-        <div id="input-div">
-            <input type="text" id="input-el">
+        <div id="layout-div">
+            <div id="input-div">
+                <input type="text" id="input-el">
+            </div>
+            <table>
+                <tr>
+                    <td><button id="rest">%</button></td>
+                    <td><button id="factorial">!</button></td>
+                    <td><button id="c">C</button></td>
+                    <td><button id="delete">&#x2190;</button></td>
+
+                </tr>
+                <tr>
+                    <td><button id="parenthesis1">(</button></td>
+                    <td><button id="parenthesis2">)</button></td>
+                    <td><button id="squareRoot">√</button></td>
+                    <td><button id="division">/</button></td>
+
+                </tr>
+                <tr>
+                    <td><button id="seven">7</button></td>
+                    <td><button id="eight">8</button></td>
+                    <td><button id="nine">9</button></td>
+                    <td><button id="multiply">X</button></td>
+
+                </tr><tr>
+                    <td><button id="four">4</button></td>
+                    <td><button id="five">5</button></td>
+                    <td><button id="six">6</button></td>
+                    <td><button id="subtract">-</button></td>
+
+                </tr><tr>
+                    <td><button id="one">1</button></td>
+                    <td><button id="two">2</button></td>
+                    <td><button id="three">3</button></td>
+                    <td><button id="sum">+</button></td>
+
+                </tr><tr>
+                    <td><button id="exponent">x²</button></td>
+                    <td><button id="zero">0</button></td>
+                    <td><button id="comma">,</button></td>
+                    <td><button id="equal">=</button></td>
+
+                </tr>
+            </table>
         </div>
-        <table>
-            <tr>
-                <td><button id="rest">%</button></td>
-                <td><button id="factorial">!</button></td>
-                <td><button id="c">C</button></td>
-                <td><button id="delete">&#x2190;</button></td>
-
-            </tr>
-            <tr>
-                <td><button id="parenthesis1">(</button></td>
-                <td><button id="parenthesis2">)</button></td>
-                <td><button id="squareRoot">√</button></td>
-                <td><button id="division">/</button></td>
-
-            </tr>
-            <tr>
-                <td><button id="seven">7</button></td>
-                <td><button id="eight">8</button></td>
-                <td><button id="nine">9</button></td>
-                <td><button id="multiply">X</button></td>
-
-            </tr><tr>
-                <td><button id="four">4</button></td>
-                <td><button id="five">5</button></td>
-                <td><button id="six">6</button></td>
-                <td><button id="subtract">-</button></td>
-
-            </tr><tr>
-                <td><button id="one">1</button></td>
-                <td><button id="two">2</button></td>
-                <td><button id="three">3</button></td>
-                <td><button id="sum">+</button></td>
-
-            </tr><tr>
-                <td><button id="exponent">x²</button></td>
-                <td><button id="zero">0</button></td>
-                <td><button id="comma">,</button></td>
-                <td><button id="equal">=</button></td>
-
-            </tr>
-        </table>
     </div>
     <script src="index.js"></script>
 </body>
