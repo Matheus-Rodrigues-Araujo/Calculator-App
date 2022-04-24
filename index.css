@@ -1,6 +1,7 @@
 *{
     margin: 0%;
     padding: 0%;
+    box-sizing: border-box;
 }
 
 body{
@@ -20,27 +21,41 @@ header{
 }
 
 #main-div{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#layout-div{
     /* background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(255, 0, 0)); */
     background-image: linear-gradient(to bottom, rgb(202, 26, 26), rgb(242,0,255));
-    /* width: 500px;
-    height: 400px; */
-    position: absolute;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%, -57%);
+    display: inline-flex;
+    flex-flow: column wrap;
+    width: 500px;
+    justify-content: space-evenly;
+    /* height: 400px; */
+    /* position: absolute; */
+    /* left: 50%; */
+    /* top: 60%; */
+    /* transform: translate(-50%, -57%); */
     border: 7px outset rgb(255, 239, 239);
     /* border-top: black; */
     /* border-bottom: gray */
 }
 
-#input-div{
-    margin: 20px 0px 0px 10px;
-    text-align: center;
+#input-div {
+    margin-left: 6px;
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-evenly;
+    justify-content: center;
 }
 #input-div input{
+    margin-top: 10px;
     border-radius: 10px;
-    width: 80%;
-    padding: 0px 8px;
+    width: 82%;
+    /* padding: 0px 8px; */
     height: 40px;
     font-size: 30px;
     background-color: white;
@@ -51,8 +66,18 @@ header{
 }
 
 table{
-    margin: 0px 30px 20px 30px;
+    border-collapse: collapse;
+    /* display: inline-table; */
+    display: flex;
+    
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    /* margin: 0px 30px 20px 30px; */
     /* margin: 0px 0px 0px 0px; */
+}
+
+th, td{
+    padding: 1px;
 }
 table button{
     margin-top: 0px;
@@ -60,14 +85,14 @@ table button{
 }
 
 
-button{
+button {
     font-size: 20px;
     font-weight: 700;
     border-radius: 20px;
     border: 3px outset rgb(187, 161, 161);
-    width: 90px;
+    width: 92px;
     height: 70px;
-    margin: 0px 0px 3px 10px;
+    margin: 0px 0px 3px 7px;
 }
 button:hover{
     background-color: rgb(8, 181, 181);
@@ -98,4 +123,101 @@ button:hover{
 #parenthesis1, #parenthesis2{
     font-size: 22px;
     padding-top: 20%;
+}
+
+/* @media screen and (max-width: 540px){
+
+    #main-div{
+        width: 420px;
+        display: flex;
+        flex-flow: row wrap;
+        margin-left: 8px;
+    }
+    table {
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        /* margin: 0px 0px 0px 56px;
+        /* margin: 0px 0px 0px 0px;
+    }
+    #layout-div{
+        /* background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(255, 0, 0)); */
+        /* background-image: linear-gradient(to bottom, rgb(202, 26, 26), rgb(242,0,255)); */
+        /* display: inline-flex; */
+        /* flex-flow: row wrap; */
+        /* width: 500px; */
+        /* justify-content: center; */
+        /* height: 400px; */
+        /* position: absolute; */
+        /* left: 50%; */
+        /* top: 60%; */
+        /* transform: translate(-50%, -57%); */
+        /* border: 7px outset rgb(255, 239, 239); */
+        /* border-top: black; */
+        /* border-bottom: gray;
+    }
+} */
+
+@media screen and (min-width:525px) and (max-width:1084px){
+    #main-div {
+        display: flex;
+        /* margin-right: 15%; */
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    table{
+        justify-content: space-evenly;
+    }
+
+   table tbody{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+   }
+
+    table button {
+        margin-top: 0px;
+        padding: 9px;
+    }
+
+    button {
+        font-size: 20px;
+        font-weight: 700;
+        border-radius: 20px;
+        /* border: 3px outset rgb(187, 161, 161); */
+        /* width: 90px; */
+        height: 50px;
+        /* margin: 0px 0px 3px 38px; */
+    }
+    
+    header{
+        margin-bottom:12px;
+        color: white;
+        /* padding: 0px 120px 0px 0px; */
+        text-align: center;
+        font-size: 34px;
+        font-weight: 700;
+    }
+
+    #delete{
+        font-size: 45px;
+        padding-top: 0%;
+    }
+    
+    #squareRoot{
+        font-size: 38px;
+        font-weight:900;
+        padding-top: 2px;
+    }
+    
+    #parenthesis1, #parenthesis2{
+        padding-top: 12%;
+    }
+
+    #equal{
+        font-size: 40px;
+        padding-top: 3%;
+    }
 }
