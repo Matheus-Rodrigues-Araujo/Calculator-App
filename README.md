@@ -5,7 +5,7 @@ Here's my codepen link where you can see the project and test it: [https://codep
 
 ------------ About -----------------
 
-This is a simple calculator app that i've made. The application is almost complete, It just needs a little improvement in its responsiveness for different screen sizes with media queries.
+This is a simple calculator app I made. This program can solve the most common mathematical expressions in our daily lives.
 
 ------------ Tecnologies ------------
 * HTML
